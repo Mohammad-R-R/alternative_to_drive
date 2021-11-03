@@ -1,0 +1,22 @@
+library(C50)
+library(datasets)
+
+library("foreign")
+
+setwd("C:\\Users\\ddodo\\Desktop\\New folder\\Data and analysis")
+
+df <- read.spss("SefSec_2014_HH_weight new.sav", to.data.frame=TRUE)
+
+View(df)
+na.omit(df)
+data("iris")
+dataset=df
+str(dataset)
+summary(dataset)
+View(dataset)
+
+model =C5.0(dataset[ ,-5], dataset[ ,5])
+plot(model, type="s", main="Decision tree")
+
+summary(model)
+
